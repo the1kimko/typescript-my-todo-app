@@ -1,3 +1,8 @@
+// ==============================
+// Todo Model
+// ==============================
+
+// Represents a single todo item.
 export interface Todo {
     id: number;
     text: string;
@@ -5,19 +10,45 @@ export interface Todo {
     createdAt: Date;
 }
 
-// Component props
+// ==============================
+// Shared Prop Types
+// ==============================
+
+/**
+ * Function signature for actions on a Todo by ID.
+ */
+export type TodoIdHandler = (id: number) => void;
+
+/**
+ * Props for adding a new todo.
+ */
 export interface TodoFormProps {
     onAddTodo: (text: string) => void;
 }
 
-export interface TodoListProps {
-    todos: Todo[];
-    onToggle: (id: number) => void;
-    onDelete: (id: number) => void;
+/**
+ * Props shared between components displaying Todo items.
+ */
+export interface TodoItemBaseProps {
+    onToggle: TodoIdHandler;
+    onDelete: TodoIdHandler;
+    onEditStart?: (id: number, currentText: string) => void;
 }
 
-export interface TodoItemProps {
+// ==============================
+// Component Props
+// ==============================
+
+/**
+ * Props for the TodoItem component.
+ */
+export interface TodoItemProps extends TodoItemBaseProps {
     todo: Todo;
-    onToggle: (id: number) => void;
-    onDelete: (id: number) => void;
+}
+  
+/**
+* Props for the TodoList component.
+*/
+export interface TodoListProps extends TodoItemBaseProps {
+    todos: Todo[];
 }
