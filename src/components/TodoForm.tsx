@@ -16,6 +16,8 @@ interface TodoFormProps {
 const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
   /** Current input text value */
   const [input, setInput] = useState<string>('');
+  /** Error message for validation feedback */
+  const [error, setError] = useState<string | null>(null);
 
   /**
    * Handles form submission
@@ -28,10 +30,14 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
     const trimmedInput = input.trim();
 
     // Only add todo if input contains non-whitespace characters
-    if (trimmedInput) {
-      onAddTodo(trimmedInput);
-      setInput(''); // Clear input after successful submission
+    if (!trimmedInput) {
+      setError('Todo cannot be empty.');
+      return;
     }
+
+    onAddTodo(trimmedInput);
+    setInput('');
+    setError(null); // Clear previous error (if any)
   };
 
   /**
@@ -40,6 +46,9 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
    */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setInput(e.target.value);
+
+    // Clear error if user starts typing
+    if (error) setError(null);
   };
 
   return (
@@ -65,6 +74,9 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
           Add
         </button>
       </div>
+      
+      {/* Validation Error */}
+      {error && <div className="error-message">{error}</div>}
     </form>
   );
 };
