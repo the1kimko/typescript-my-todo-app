@@ -348,7 +348,7 @@ export default TodoForm;
 
 | Phase | Prompt Used | Summary | Evaluation | Takeaway |
 |-------|-------------|---------|------------|----------|
-| **Conceptual Understanding** | *"What are the key philosophical differences between JS and TS?"* `[Prompt](https://ai.moringaschool.com/ai-software/learning-with-ai/learning-new-language/#_1_structured_learning_prompts_for_programming_languages)` | Explained compile-time vs runtime safety, IDE benefits, and scalable code reasoning | ⭐ 9/10 | Helped reframe how TS improves reliability |
+| **Conceptual Understanding** | *"What are the key philosophical differences between JS and TS?"* [`Prompt`](https://ai.moringaschool.com/ai-software/learning-with-ai/learning-new-language/#_1_structured_learning_prompts_for_programming_languages) | Explained compile-time vs runtime safety, IDE benefits, and scalable code reasoning | ⭐ 9/10 | Helped reframe how TS improves reliability |
 | **Project Setup** | *"How do I build a TypeScript React app with Vite?"* | Provided correct Vite commands, explained folder structure | ⭐ 10/10 | Immediate time-saver, avoided misconfigurations |
 | **Component Typing** | *"Help me design interfaces for TodoForm, TodoItem, etc."* `[Prompt](https://ai.moringaschool.com/ai-software/learning-with-ai/learning-new-language/#_1_2_step_by_step_breakdown)` | Clarified prop typing, reusable interfaces, how to use `extends` | ⭐ 9/10 | Became confident designing reusable types |
 | **Event Typing** | *"Guide me through form handlers in TS."* `[Prompt](https://ai.moringaschool.com/ai-software/learning-with-ai/learning-new-language/#_1_3_guided_implementation)` | Showed how to type `FormEvent`, `ChangeEvent`, and `useState` | ⭐ 8/10 | Made input logic predictable and safer |
